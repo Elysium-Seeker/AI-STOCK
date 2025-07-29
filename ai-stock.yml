@@ -1,0 +1,3330 @@
+app:
+  description: ''
+  icon: 🤖
+  icon_background: '#FFEAD5'
+  mode: advanced-chat
+  name: ai-stock
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: bowenliang123/md_exporter:1.8.0@aa15ca94651e608fa2defef440cc5bbd22884053168bd2d41d132d5d1b021129
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/azure_openai:0.0.20@01e82382fa5c7dec994cad1a5a80a73b3d845e4b54fc5e22bbcc57cf296c3f5b
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/chart:0.0.2@2d207a8cd79e17cf730f5ac0cb41d982f2abe5c19f3f785a29a769154afefbab
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/yahoo:0.0.5@b0bf4aa3062c9b41ce3eaac8e4ea1987f7daef614702b4f3a11755629b35bb28
+kind: app
+version: 0.3.1
+workflow:
+  conversation_variables:
+  - description: ''
+    id: 921f76f1-2213-4187-bfe0-ee25de0976b8
+    name: name
+    selector:
+    - conversation
+    - name
+    value: AAPL
+    value_type: string
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        image_file_size_limit: 10
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: '您好，欢迎使用多维度投资策略分析系统。
+
+      我是一个由多个拥有不同投资哲学的AI专家组成的分析系统。在这里，我汇聚了从价值投资、成长投资到宏观经济等不同领域的AI分析师，旨在为您提供一个全面、平衡且富有深度的投资视角。
+
+      您可以问我感兴趣的股票新闻和相关信息，也可以让我给您提供详实的投资建议。
+
+      现在，让我们开始吧。'
+    retriever_resource:
+      enabled: true
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions:
+    - 分析特斯拉的股票。
+    - Nvidia最近有哪些新闻？
+    - 亚马逊今天的股价是多少？
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-llm-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: llm
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753320676610-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753320676610'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753320695920-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753320695920'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: llm-source-1753320816139-target
+      source: llm
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753320676610-source-1753320816139-target
+      source: '1753320676610'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753320695920-source-1753320816139-target
+      source: '1753320695920'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1753320784833-2-1753320901793-target
+      source: '1753320784833'
+      sourceHandle: '2'
+      target: '1753320901793'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1753320901793-source-1753322034671-target
+      source: '1753320901793'
+      sourceHandle: source
+      target: '1753322034671'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1753322034671-source-1753321640492-target
+      source: '1753322034671'
+      sourceHandle: source
+      target: '1753321640492'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753323584374-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753323584374'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753323584374-source-1753320816139-target
+      source: '1753323584374'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753323587704-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753323587704'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753323587704-source-1753320816139-target
+      source: '1753323587704'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753323593368-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753323593368'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753323593368-source-1753320816139-target
+      source: '1753323593368'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753323808978-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753323808978'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753323808978-source-1753320816139-target
+      source: '1753323808978'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753323813858-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753323813858'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753323813858-source-1753320816139-target
+      source: '1753323813858'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: llm
+      id: 1753320188688-source-1753324070597-target
+      source: '1753320188688'
+      sourceHandle: source
+      target: '1753324070597'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: llm
+      id: 1753324070597-source-1753320816139-target
+      source: '1753324070597'
+      sourceHandle: source
+      target: '1753320816139'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753320816139-source-answer-target
+      source: '1753320816139'
+      sourceHandle: source
+      target: answer
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: assigner
+      id: 1753324737030-source-1753324985692-target
+      source: '1753324737030'
+      sourceHandle: source
+      target: '1753324985692'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: assigner
+        targetType: question-classifier
+      id: 1753324985692-source-1753320784833-target
+      source: '1753324985692'
+      sourceHandle: source
+      target: '1753320784833'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753321640492-source-1753320985759-target
+      source: '1753321640492'
+      sourceHandle: source
+      target: '1753320985759'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1753320948775-source-1753325505712-target
+      source: '1753320948775'
+      sourceHandle: source
+      target: '1753325505712'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1753325505712-source-1753325197790-target
+      source: '1753325505712'
+      sourceHandle: source
+      target: '1753325197790'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1753320784833-1-1753329840341-target
+      source: '1753320784833'
+      sourceHandle: '1'
+      target: '1753329840341'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1753329840341-source-1753320188688-target
+      source: '1753329840341'
+      sourceHandle: source
+      target: '1753320188688'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1753320784833-1-1753329855102-target
+      source: '1753320784833'
+      sourceHandle: '1'
+      target: '1753329855102'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1753329855102-source-1753320188688-target
+      source: '1753329855102'
+      sourceHandle: source
+      target: '1753320188688'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1753320784833-1-1753329877762-target
+      source: '1753320784833'
+      sourceHandle: '1'
+      target: '1753329877762'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: tool
+      id: 1753329877762-source-1753320188688-target
+      source: '1753329877762'
+      sourceHandle: source
+      target: '1753320188688'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: llm
+      id: 1753320784833-1753320964042-1753332604539-target
+      source: '1753320784833'
+      sourceHandle: '1753320964042'
+      target: '1753332604539'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753332604539-source-1753320796925-target
+      source: '1753332604539'
+      sourceHandle: source
+      target: '1753320796925'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1753320784833-1753320915700-1753320948775-target
+      source: '1753320784833'
+      sourceHandle: '1753320915700'
+      target: '1753320948775'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1753333481609-source-1753325197790-target
+      source: '1753333481609'
+      sourceHandle: source
+      target: '1753325197790'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: llm
+      id: 1753333011540-true-1753333154822-target
+      source: '1753333011540'
+      sourceHandle: 'true'
+      target: '1753333154822'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1753333154822-source-1753320729548-target
+      source: '1753333154822'
+      sourceHandle: source
+      target: '1753320729548'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: tool
+      id: 1753320784833-1753320915700-1753333789982-target
+      source: '1753320784833'
+      sourceHandle: '1753320915700'
+      target: '1753333789982'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1753333789982-source-1753333481609-target
+      source: '1753333789982'
+      sourceHandle: source
+      target: '1753333481609'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753333980353-source-1753333965080-target
+      source: '1753333980353'
+      sourceHandle: source
+      target: '1753333965080'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1753320729548-source-1753334160569-target
+      source: '1753320729548'
+      sourceHandle: source
+      target: '1753334160569'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1753334160569-source-1753333980353-target
+      source: '1753334160569'
+      sourceHandle: source
+      target: '1753333980353'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753325197790-source-1753334407654-target
+      source: '1753325197790'
+      sourceHandle: source
+      target: '1753334407654'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: if-else
+      id: 1753334407654-source-1753333011540-target
+      source: '1753334407654'
+      sourceHandle: source
+      target: '1753333011540'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: if-else
+        targetType: answer
+      id: 1753333011540-false-1753334433538-target
+      source: '1753333011540'
+      sourceHandle: 'false'
+      target: '1753334433538'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: question-classifier
+        targetType: http-request
+      id: 1753320784833-1-1753334810426-target
+      source: '1753320784833'
+      sourceHandle: '1'
+      target: '1753334810426'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: http-request
+        targetType: tool
+      id: 1753334810426-source-1753320188688-target
+      source: '1753334810426'
+      sourceHandle: source
+      target: '1753320188688'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: code
+      id: answer-source-17533354023400-target
+      source: answer
+      sourceHandle: source
+      target: '17533354023400'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 17533354023400-source-1753335445334-target
+      source: '17533354023400'
+      sourceHandle: source
+      target: '1753335445334'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: tool
+      id: 1753335445334-source-1753335477237-target
+      source: '1753335445334'
+      sourceHandle: source
+      target: '1753335477237'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: code
+      id: 1753335477237-source-1753335501997-target
+      source: '1753335477237'
+      sourceHandle: source
+      target: '1753335501997'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: 1753335501997-source-1753335737015-target
+      source: '1753335501997'
+      sourceHandle: source
+      target: '1753335737015'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: llm
+        targetType: answer
+      id: 1753335737015-source-1753335779864-target
+      source: '1753335737015'
+      sourceHandle: source
+      target: '1753335779864'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: start
+        targetType: knowledge-retrieval
+      id: 1753261143378-source-1753320774890-target
+      source: '1753261143378'
+      sourceHandle: source
+      target: '1753320774890'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: knowledge-retrieval
+        targetType: llm
+      id: 1753320774890-source-1753324737030-target
+      source: '1753320774890'
+      sourceHandle: source
+      target: '1753324737030'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: tool
+        targetType: answer
+      id: 1753337326776-source-1753337361730-target
+      source: '1753337326776'
+      sourceHandle: source
+      target: '1753337361730'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInLoop: false
+        sourceType: answer
+        targetType: tool
+      id: 1753335779864-source-1753337326776-target
+      source: '1753335779864'
+      sourceHandle: source
+      target: '1753337326776'
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: 开始
+        type: start
+        variables: []
+      height: 54
+      id: '1753261143378'
+      position:
+        x: 30
+        y: 515
+      positionAbsolute:
+        x: 30
+        y: 515
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 10
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 456276cc-6973-456d-90e4-3ff736582fe1
+          role: system
+          text: 'Agent Name: Ben_Graham_Agent
+
+            Persona: “你是一位逻辑严谨、极度厌恶风险的价值投资教父。你的唯一信条是‘安全边际’。你对市场的喧嚣和情绪波动不屑一顾，只相信公司资产负债表上冰冷的数字。你寻找的是那些价格被严重低估，甚至低于其清算价值的‘烟蒂股’。”
+
+            Core Objective: “识别并量化公司的内在价值（特别是清算价值），只在当前股价提供巨大安全边际时才进行投资。”
+
+            Analysis Framework:
+
+            首要关注: 资产负债表，其次是现金流量表，最后才是利润表。
+
+            关键指标:
+
+            净流动资产价值 (NCAV)：寻找股价低于NCAV 2/3的公司。
+
+            低市盈率 (P/E Ratio)：低于10，甚至低于7。
+
+            低市净率 (P/B Ratio)：低于1.2，越低越好。
+
+            负债情况: 总负债低于净流动资产。
+
+            股息: 持续稳定的股息支付记录。
+
+            Decision Triggers & Heuristics:
+
+            买入: 当 股价 < (净流动资产 - 总负债) * 0.67 时，发出强烈买入信号。
+
+            卖出: 当股价上涨50%后，或在两年内未达到目标价时，坚决卖出。绝不“爱上”一只股票。
+
+            Output Format:
+
+            以markdown格式生成一份简明扼要的估值备忘录，最前方署名，末尾加上分割线，核心内容是NCAV计算过程和安全边际的百分比。结论必须是‘买入’或‘忽略’。
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        - id: 016dc744-5faa-4f13-9fb3-8b5ce2893ac2
+          role: user
+          text: ''
+        selected: false
+        title: Ben_Graham_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: llm
+      position:
+        x: 2354
+        y: 2171
+      positionAbsolute:
+        x: 2354
+        y: 2171
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753320816139.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复
+        type: answer
+        variables: []
+      height: 105
+      id: answer
+      position:
+        x: 3018
+        y: 1659
+      positionAbsolute:
+        x: 3018
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: used for linking to webpages
+            ja_JP: used for linking to webpages
+            pt_BR: used for linking to webpages
+            zh_Hans: 用于链接到网页
+          label:
+            en_US: URL
+            ja_JP: URL
+            pt_BR: URL
+            zh_Hans: 网页链接
+          llm_description: url for scraping
+          max: null
+          min: null
+          name: url
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+            like Gecko) Chrome/100.0.1000.0 Safari/537.36
+          form: form
+          human_description:
+            en_US: used for identifying the browser.
+            ja_JP: used for identifying the browser.
+            pt_BR: used for identifying the browser.
+            zh_Hans: 用于识别浏览器。
+          label:
+            en_US: User Agent
+            ja_JP: User Agent
+            pt_BR: User Agent
+            zh_Hans: User Agent
+          llm_description: null
+          max: null
+          min: null
+          name: user_agent
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: 'false'
+          form: form
+          human_description:
+            en_US: If true, the crawler will only return the page summary content.
+            ja_JP: If true, the crawler will only return the page summary content.
+            pt_BR: If true, the crawler will only return the page summary content.
+            zh_Hans: 如果启用，爬虫将仅返回页面摘要内容。
+          label:
+            en_US: Whether to generate summary
+            ja_JP: Whether to generate summary
+            pt_BR: Whether to generate summary
+            zh_Hans: 是否生成摘要
+          llm_description: null
+          max: null
+          min: null
+          name: generate_summary
+          options:
+          - icon: null
+            label:
+              en_US: 'Yes'
+              ja_JP: 'Yes'
+              pt_BR: 'Yes'
+              zh_Hans: 是
+            value: 'true'
+          - icon: null
+            label:
+              en_US: 'No'
+              ja_JP: 'No'
+              pt_BR: 'No'
+              zh_Hans: 否
+            value: 'false'
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: boolean
+        params:
+          generate_summary: ''
+          url: ''
+          user_agent: ''
+        provider_id: webscraper
+        provider_name: webscraper
+        provider_type: builtin
+        selected: false
+        title: 网页爬虫
+        tool_configurations:
+          generate_summary:
+            type: constant
+            value: false
+          user_agent:
+            type: mixed
+            value: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML,
+              like Gecko) Chrome/100.0.1000.0 Safari/537.36
+        tool_description: 一个用于爬取网页的工具。
+        tool_label: 网页爬虫
+        tool_name: webscraper
+        tool_node_version: '2'
+        tool_parameters:
+          url:
+            type: mixed
+            value: https://query1.finance.yahoo.com/v8/finance/chart/{{#conversation.name#}}
+        type: tool
+      height: 116
+      id: '1753320188688'
+      position:
+        x: 2022
+        y: 1147
+      positionAbsolute:
+        x: 2022
+        y: 1147
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 09e593ef-5c53-47bf-97f1-70590912311d
+          role: system
+          text: 'Agent Name: Warren_Buffett_Agent
+
+            Persona: “你是一位耐心、睿智的‘奥马哈先知’。你不是在买股票，而是在购买一家公司的一部分。你只投资于自己能完全理解的、具有持久竞争优势（‘经济护城河’）的卓越企业。你的投资期限是‘永远’。”
+
+            Core Objective: “以合理或便宜的价格，买入拥有强大护城河的、由杰出管理层领导的伟大公司。”
+
+            Analysis Framework:
+
+            四个滤网:
+
+            业务可理解性 (Circle of Competence)：我是否能用简单的语言描述这家公司如何赚钱？
+
+            长期前景 (Durable Competitive Advantage)：这家公司是否有宽阔的护城河（品牌、专利、网络效应、成本优势）来抵御竞争对手？
+
+            管理层能力 (Management)：管理层是否理性、诚实，并始终为股东利益着想？
+
+            价格吸引力 (Price)：当前价格是否低于其长期内在价值？
+
+            关键指标:
+
+            股本回报率 (ROE)：持续高于15%。
+
+            自由现金流 (Free Cash Flow)：强大且持续增长。
+
+            低负债: 稳健的财务结构。
+
+            Decision Triggers & Heuristics:
+
+            买入: 当一家符合上述所有条件的伟大公司，其价格因市场恐慌或短期坏消息而变得合理时，就是“贪婪”的时刻。
+
+            卖出: 几乎不卖出，除非：1) 公司护城河被永久性摧毁；2) 管理层变得不可信赖；3) 出现了性价比高得多的投资机会。
+
+            Output Format: “以markdown格式输出一份股东信风格的投资论述，最前方署名，末尾加上分割线。详细阐述公司的护城河、管理层质量以及为什么现在是一个有吸引力的买入点。结论是‘投资’或‘继续观察’。”
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        selected: false
+        title: Warren_Buffett_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753320676610'
+      position:
+        x: 2354
+        y: 2043
+      positionAbsolute:
+        x: 2354
+        y: 2043
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: a9b0bdb8-aeb2-4523-9f8d-5f6bd286e3eb
+          role: system
+          text: 'Agent Name: Cathie_Wood_Agent
+
+            Persona: “你是一位充满信念、拥抱未来的创新投资者。你坚信颠覆性创新是驱动世界指数级增长的核心动力。你专注于那些能够改变世界的技术，如人工智能、基因测序、区块链和机器人技术。你敢于在大多数人还在质疑时下重注。”
+
+            Core Objective: “识别并投资于那些拥有指数级增长潜力、处于颠覆性创新领域的公司，即使它们当前尚未盈利。”
+
+            Analysis Framework:
+
+            投资主题: 自上而下，首先识别塑造未来的宏大科技趋势。
+
+            技术评估: 深度研究技术本身的成熟度、成本下降曲线和潜在市场规模 (TAM)。
+
+            公司评估:
+
+            技术领导力: 公司是否是该领域的领导者或关键推动者？
+
+            管理层愿景: 管理层是否有能力引领公司抓住巨大的技术浪潮？
+
+            增长潜力: 关注营收增长潜力、用户增长而非当前利润。
+
+            Decision Triggers & Heuristics:
+
+            买入: 当一家公司的技术或商业模式有潜力成为新平台的标准，并且其估值尚未完全反映其指数级增长潜力时。
+
+            卖出: 当我们的五年投资回报预期下降，或者我们发现了一个更具颠覆性的投资标的时。
+
+            Output Format:
+
+            以markdown格式生成一份前瞻性的研究报告，最前方署名，末尾加上分割线，重点描述该技术如何颠覆传统行业、公司的领导地位以及未来五年的潜在回报预测。结论是‘积极配置’或‘纳入观察列表’。
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考'
+        - id: b1658dd1-27be-4b17-969f-a64c0908e389
+          role: user
+          text: ''
+        selected: false
+        title: Cathie_Wood_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753320695920'
+      position:
+        x: 2354
+        y: 1915
+      positionAbsolute:
+        x: 2354
+        y: 1915
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data for generating chart, each number should be separated by ";"
+            ja_JP: data for generating chart, each number should be separated by ";"
+            pt_BR: dados para gerar gráfico linear, cada número deve ser separado
+              por ";"
+            zh_Hans: 用于生成线性图表的数据，每个数字之间用 ";" 分隔
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: dados
+            zh_Hans: 数据
+          llm_description: data for generating linear chart, data should be a string
+            contains a list of numbers like "1;2;3;4;5"
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: X axis for chart, each text should be separated by ";"
+            ja_JP: X axis for chart, each text should be separated by ";"
+            pt_BR: Eixo X para gráfico linear, cada texto deve ser separado por ";"
+            zh_Hans: 线性图表的 x 轴，每个文本之间用 ";" 分隔
+          label:
+            en_US: X Axis
+            ja_JP: X Axis
+            pt_BR: Eixo X
+            zh_Hans: x 轴
+          llm_description: x axis for linear chart, x axis should be a string contains
+            a list of texts like "a;b;c;1;2" in order to match the data
+          max: null
+          min: null
+          name: x_axis
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          data: ''
+          x_axis: ''
+        provider_id: langgenius/chart/chart
+        provider_name: langgenius/chart/chart
+        provider_type: builtin
+        selected: false
+        title: 线性图表
+        tool_configurations: {}
+        tool_description: 线性图表
+        tool_label: 线性图表
+        tool_name: line_chart
+        tool_node_version: '2'
+        tool_parameters:
+          data:
+            type: mixed
+            value: '{{#1753333154822.text#}}'
+          x_axis:
+            type: mixed
+            value: ''
+        type: tool
+      height: 54
+      id: '1753320729548'
+      position:
+        x: 4014
+        y: 385.5
+      positionAbsolute:
+        x: 4014
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        dataset_ids:
+        - HmxMdyeoytnBV1yxeg+wcsXEYUjdfnwCQ2YoSlFkHV26FRdpHDwF5/2MsWsv4bbT
+        desc: ''
+        multiple_retrieval_config:
+          reranking_enable: true
+          reranking_mode: weighted_score
+          top_k: 4
+          weights:
+            keyword_setting:
+              keyword_weight: 0
+            vector_setting:
+              embedding_model_name: text-embedding-3-small
+              embedding_provider_name: langgenius/azure_openai/azure_openai
+              vector_weight: 1
+        query_variable_selector:
+        - sys
+        - query
+        retrieval_mode: multiple
+        selected: false
+        title: 知识检索
+        type: knowledge-retrieval
+      height: 92
+      id: '1753320774890'
+      position:
+        x: 362
+        y: 515
+      positionAbsolute:
+        x: 362
+        y: 515
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        classes:
+        - id: '1'
+          name: "用户询问股票分析，如果问题涉及投资建议、市场分析、未来预测，则归类为\"股票分析/投资建议\"。\n示例：\n- \"英伟达现在适合长期持有吗？\"\
+            \ → 股票分析/投资建议\n- \"未来三个月苹果股票会涨吗？\" → 股票分析/投资建议\n - 关键词：分析/预测/建议/适合买吗/走势/长期持有/目标价\n\
+            - 边界情况：若问题同时含\"新闻\"和\"分析\"，优先归为\"分析\""
+        - id: '2'
+          name: "用户询问股票相关新闻，如果问题涉及公司新闻、财报、行业动态，则归类为\"股票新闻\"。\n示例：\n- \"谷歌最近有什么新闻？\"\
+            \ → 股票新闻\n- \"腾讯最新财报怎么样？\" → 股票新闻\n - 关键词：新闻/财报/公告/发布/事件"
+        - id: '1753320915700'
+          name: '用户询问股票相关信息，如果问题涉及股票实时数据、财务指标、交易信息，则归类为"股票信息"。
+
+            示例：
+
+            - "特斯拉当前股价是多少？" → 股票信息
+
+            - "亚马逊的市盈率是多少？" → 股票信息
+
+            - 关键词：股价/市值/代码/分红/成交量/市盈率（PE）/市净率（PB）'
+        - id: '1753320964042'
+          name: '用户询问其他问题，如果问题不涉及股票新闻、信息或分析，则归类为"其他问题"。
+
+            示例：
+
+            - "区块链是什么？" → 其他问题
+
+            - "怎么开股票账户？" → 其他问题'
+        desc: ''
+        instructions: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        query_variable_selector:
+        - '1753261143378'
+        - sys.query
+        selected: false
+        title: 问题分类器
+        topics: []
+        type: question-classifier
+        vision:
+          enabled: false
+      height: 632
+      id: '1753320784833'
+      position:
+        x: 1358
+        y: 515
+      positionAbsolute:
+        x: 1358
+        y: 515
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753332604539.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 2
+        type: answer
+        variables: []
+      height: 105
+      id: '1753320796925'
+      position:
+        x: 2022
+        y: 638
+      positionAbsolute:
+        x: 2022
+        y: 638
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: true
+          variable_selector:
+          - conversation
+          - name
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 6751de22-e4fe-4885-965a-eee5177739a4
+          role: system
+          text: 'Agent Name: Chief_Investment_Strategist_Agent
+
+            Persona: “你是一家顶级投资公司的首席投资策略师，正在主持一场关于单一股票的投资委员会会议。你的与会者是投资界的传奇人物（巴菲特、格雷厄姆、伍德等）和各个领域的顶尖专家（估值、技术、风险等）。你的职责不是压制任何声音，而是引导和展示这场辩论。你的最终输出是一份面向客户的、高度透明的‘投资委员会会议纪要’，它必须清晰地呈现每个重要成员的独立观点，揭示共识与分歧，并在此基础上，提供你作为首席策略师的最终、综合性战略建议。”
+
+            Core Objective: “主持一场虚拟的投委会会议，并生成一份详细的会议纪要。这份报告需要：1) 逐一展示每位‘投资传奇’Agent的核心观点和结论；2)
+            整合功能性Agent的数据分析；3) 提炼出多空双方的核心论战焦点；4) 最后，基于以上所有信息，为不同类型的投资者提供清晰、可执行的综合策略。”
+
+            Analysis Framework:
+
+            观点陈述 (The Roundtable Presentation): 收集所有传奇Agent和功能Agent的报告。从每个报告中提取最核心的论点、证据和结论。
+
+            辩论聚焦 (Isolating the Debate): 对比所有观点，找出它们相互印证或相互矛盾的地方。必须明确指出：“巴菲特和格雷厄姆都对负债表表示担忧，而伍德则认为这是未来增长必要的投入。”
+
+            策略合成 (Strategy Synthesis): 基于呈现出的辩论，构建一个不偏袒任何一方的、全面的战略画面，并为不同风险偏好的用户画像定制建议。
+
+            Output Format & Report Structure: 你必须严格遵循以下结构生成报告：
+
+            报告标题：投资委员会会议纪要：{{#conversation.name#}}
+
+            1. 首席策略师的开篇综述 (Executive Summary)
+
+            (用一到两句话，高度概括本次会议的最终基调和核心结论。)
+
+            示例：“委员会对[]（此处为这家公司的名称）的讨论呈现出显著分歧。长期价值投资者对其高昂的估值表示担忧，而成长派则对其颠覆性潜力感到兴奋。我们的最终建议倾向于谨慎乐观，但强烈建议投资者根据自身风格做出决策。”
+
+            2. 投资传奇圆桌会议 (The Legends'' Roundtable)
+
+            (这是报告的核心。逐一、清晰地展示每位传奇Agent的观点。)
+
+            沃伦·巴菲特 (Warren Buffett) 的观点:
+
+            (简述其对公司护城河、管理层和长期盈利能力的看法。)
+
+            结论: (明确的词语，如：‘这是一个我们愿意长期持有的伟大企业，但目前价格不具吸引力，建议耐心等待。’)
+
+            本·格雷厄姆 (Ben Graham) 的观点:
+
+            (简述其从纯粹的数字和安全边际角度的分析。)
+
+            结论: (明确的词语，如：‘该股票价格远超其净资产和清算价值，完全没有安全边际可言，建议坚决规避。’)
+
+            凯茜·伍德 (Cathie Wood) 的观点:
+
+            (简述其对公司所处颠覆性赛道、技术优势和未来指数级增长潜力的看法。)
+
+            结论: (明确的词语，如：‘这是我们五年投资框架内的核心标的，任何因短期阵痛导致的回调都是买入良机。’)
+
+            彼得·林奇 (Peter Lynch) 的观点:
+
+            (简述其将该公司归于哪一类，以及其PEG等关键指标的表现。)
+
+            结论: (明确的词语，如：‘作为一只快速增长型公司，其PEG小于1，故事引人入胜，值得积极研究并买入。’)
+
+            (继续列出其他与会传奇人物的观点...)
+
+            3. 专家席分析摘要 (Specialists'' Desk Briefing)
+
+            (简明扼要地列出功能性Agent的客观数据结论。)
+
+            举例：基本面分析 (Fundamentals Agent): 财务健康评分：88/100 (A级)。盈利能力强劲，成长性优秀。
+
+            估值分析 (Valuation Agent): 综合内在价值区间：$150 - 
+
+            170。当前股价(170。当前股价(
+
+            190)处于估值区间上限之上，状态：可能高估。
+
+
+            技术分析 (Technicals Agent): 短期趋势：看涨但处于超买区域(RSI: 75)。中期趋势：上升通道完好。
+
+            市场情绪 (Sentiment Agent): 市场情绪得分：+0.8 (极度贪婪)。社交媒体讨论热度极高。
+
+            风险顾问 (Risk Advisor): 核心风险：估值过高、竞争加剧、对监管政策敏感。风险评级：高。
+
+            4. 首席策略师的总结陈词 (The Strategist''s Synthesis)
+
+            (这是你作为首席策略师的智慧所在，提炼并解读这场辩论。)
+
+            举例：主要共识点: “所有与会者都承认，[]（此处填写公司的名称）是一家在其行业内拥有强大产品和领导地位的优秀公司。”
+
+            核心分歧点: “本次会议的核心分歧在于‘价格与价值’的永恒辩论。价值派（格雷厄姆、巴菲特）认为，无论公司多么优秀，当前的价格已经透支了未来多年的增长，风险极高。而成长派（伍德、林奇）则认为，对于这样具有颠覆性的公司，传统的估值方法可能失效，其巨大的长期潜力证明了当前高估值的合理性。”
+
+            5. 最终投资策略路径 (Actionable Strategy Paths)
+
+            (基于以上所有信息，为不同用户提供清晰、个性化的行动建议。)
+
+            举例：综合评级: 中性偏乐观 (给予一个明确的总体评级)
+
+            为保守的长期价值投资者: “我们建议您采纳格雷厄姆和巴菲特的观点，将此股票列入观察列表，但耐心等待市场回调，直到出现您所期望的安全边际。”
+
+            为积极的成长型投资者: “我们建议您采纳伍德和林奇的观点。如果您认同其长期成长故事，可以考虑开始建立一个初始仓位，但务必采纳风险顾问的建议，做好资金管理，并准备好承受高波动性。”
+
+            为注重时机的交易者: “技术和情绪指标均显示短期过热。我们建议不要追高，可等待技术指标回调至中性区域（如RSI回到50附近）再寻找入场机会。”
+
+
+            {{#1753324070597.text#}}
+
+            {{#1753323813858.text#}}
+
+            {{#1753323808978.text#}}
+
+            {{#1753323593368.text#}}
+
+            {{#1753323587704.text#}}
+
+            {{#1753323584374.text#}}
+
+            {{#1753320695920.text#}}
+
+            {{#1753320676610.text#}}
+
+            {{#llm.text#}}
+
+            这些内容是你得到的与会者的分析。
+
+
+            {{#1753320188688.text#}}
+
+            这是所讨论的股票的具体信息。'
+        selected: false
+        title: Chief_Investment_Strategist_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753320816139'
+      position:
+        x: 2686
+        y: 1659
+      positionAbsolute:
+        x: 2686
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ticker symbol of the company you want to search.
+            ja_JP: The ticker symbol of the company you want to search.
+            pt_BR: O símbolo do ticker da empresa que você deseja pesquisar.
+            zh_Hans: 你想要搜索的公司的股票代码。
+          label:
+            en_US: Ticker symbol
+            ja_JP: Ticker symbol
+            pt_BR: Símbolo do ticker
+            zh_Hans: 股票代码
+          llm_description: The ticker symbol of the company you want to search.
+          max: null
+          min: null
+          name: symbol
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          symbol: ''
+        provider_id: langgenius/yahoo/yahoo
+        provider_name: langgenius/yahoo/yahoo
+        provider_type: builtin
+        selected: false
+        title: 新闻
+        tool_configurations: {}
+        tool_description: 一个用于从雅虎财经获取新闻的工具。
+        tool_label: 新闻
+        tool_name: yahoo_finance_news
+        tool_node_version: '2'
+        tool_parameters:
+          symbol:
+            type: mixed
+            value: '{{#conversation.name#}}'
+        type: tool
+      height: 54
+      id: '1753320901793'
+      position:
+        x: 1690
+        y: 902.5
+      positionAbsolute:
+        x: 1690
+        y: 902.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ticker symbol of the company you want to search.
+            ja_JP: The ticker symbol of the company you want to search.
+            pt_BR: O símbolo do ticker da empresa que você deseja pesquisar.
+            zh_Hans: 你想要搜索的公司的股票代码。
+          label:
+            en_US: Ticker symbol
+            ja_JP: Ticker symbol
+            pt_BR: Símbolo do ticker
+            zh_Hans: 股票代码
+          llm_description: The ticker symbol of the company you want to search.
+          max: null
+          min: null
+          name: symbol
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          symbol: ''
+        provider_id: langgenius/yahoo/yahoo
+        provider_name: langgenius/yahoo/yahoo
+        provider_type: builtin
+        selected: false
+        title: 股票信息
+        tool_configurations: {}
+        tool_description: 一个用于从雅虎财经搜索股票信息的工具。
+        tool_label: 股票信息
+        tool_name: yahoo_finance_ticker
+        tool_node_version: '2'
+        tool_parameters:
+          symbol:
+            type: mixed
+            value: '{{#conversation.name#}}'
+        type: tool
+      height: 54
+      id: '1753320948775'
+      position:
+        x: 1690
+        y: 810.5
+      positionAbsolute:
+        x: 1690
+        y: 810.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753321640492.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 3
+        type: answer
+        variables: []
+      height: 105
+      id: '1753320985759'
+      position:
+        x: 2686
+        y: 834.5
+      positionAbsolute:
+        x: 2686
+        y: 834.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 3fcfcee1-5676-4080-8c0a-f2594e17d442
+          role: system
+          text: 对输出的股票新闻{{#1753322034671.results#}}进行整理并针对用户的问题{{#sys.query#}}进行回答，输出与{{#conversation.name#}}公司相关的新闻（使用中文）
+        selected: false
+        title: LLM 5
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753321640492'
+      position:
+        x: 2354
+        y: 842
+      positionAbsolute:
+        x: 2354
+        y: 842
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(data) -> dict:\n    all_contents = []\n    for item in data:\n\
+          \      if \"news\" in item:\n        for news_item in item[\"news\"]:\n\
+          \            if \"content\" in news_item: \n                all_contents.append(news_item[\"\
+          content\"])\n    return {\n        \"results\": all_contents,\n    }\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          results:
+            children: null
+            type: array[string]
+        selected: false
+        title: 代码执行 2
+        type: code
+        variables:
+        - value_selector:
+          - '1753320901793'
+          - json
+          value_type: array[object]
+          variable: data
+      height: 54
+      id: '1753322034671'
+      position:
+        x: 2022
+        y: 873
+      positionAbsolute:
+        x: 2022
+        y: 873
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: c96da1f3-2f57-4c24-b8bd-461f7239dbae
+          role: system
+          text: 'Agent Name: Sentiment_Agent
+
+            Persona: “你是一个不知疲倦的信息搜集者和舆情分析师。你潜伏在互联网的每一个角落，通过自然语言处理技术，捕捉市场对一只股票的整体情绪。”
+
+            Core Objective: “量化市场对目标股票的情绪，并判断其是处于极度恐惧、贪婪还是中性状态。”
+
+            Analysis Framework:
+
+            数据源: 新闻文章、分析师报告、Twitter、Reddit (WallStreetBets)、财经论坛等。
+
+            分析技术: 使用NLP模型进行情感分析（正面/负面/中性）、命名实体识别和主题建模。
+
+            关键指标:
+
+            情绪得分: -1 (极度负面) 到 +1 (极度正面) 的分数。
+
+            关注度指数: 讨论量的变化率。
+
+            Decision Triggers & Heuristics: “当情绪得分连续下降并低于-0.7时，发出‘极度恐惧’信号（可能是逆向买入机会）。当得分高于+0.7时，发出‘极度贪婪’信号（可能是风险警告）。”
+
+            Output Format: “以markdown格式输出，输出JSON对象：{‘情绪得分’: 0.65, ‘情绪状态’: ‘贪婪’, ‘热门关键词’:
+            [‘AI’, ‘财报超预期’, ‘新产品’]}”
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        selected: false
+        title: Sentiment_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753323584374'
+      position:
+        x: 2354
+        y: 1787
+      positionAbsolute:
+        x: 2354
+        y: 1787
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: adaadcef-1f10-46f2-8efd-89bb006bccae
+          role: system
+          text: 'Agent Name: Peter_Lynch_Agent
+
+            Persona: “你是一位经验丰富、脚踏实地的基金经理。你相信普通投资者可以利用自己的‘本地知识’（在商场、工作中发现的好公司）战胜专业人士。你的方法是灵活、务实，将公司分门别类，并使用简单有效的指标来寻找‘十倍股’。”
+
+            Core Objective: “通过‘投资你所了解的’，发现并持有那些有潜力增长十倍甚至更多的公司。”
+
+            Analysis Framework:
+
+            公司分类:
+
+            缓慢增长型 (Slow Growers)
+
+            稳定增长型 (Stalwarts)
+
+            快速增长型 (Fast Growers) - 这是十倍股的摇篮。
+
+            周期型 (Cyclicals)
+
+            困境反转型 (Turnarounds)
+
+            资产富余型 (Asset Plays)
+
+            关键指标:
+
+            PEG (Price/Earnings to Growth) Ratio: 寻找PEG低于1，甚至低于0.5的快速增长型公司。
+
+            库存情况: 对于零售和制造业，库存增长速度是否低于销售增长速度？
+
+            现金与负债: 拥有充足现金和低负债的公司能更好地度过难关。
+
+            Decision Triggers & Heuristics:
+
+            买入: 当发现一家快速增长型公司，其PEG ratio远低于1，并且其“故事”仍然激动人心时。
+
+            卖出: 当公司的增长故事发生变化，例如增长放缓，或者PEG ratio变得过高时。
+
+            Output Format: “以markdown格式输出一份投资笔记，最前方署名，末尾加上分割线。首先明确这是哪一类公司，然后分析其‘故事’和关键数据（尤其是PEG）。结论应包含买入理由和未来需要关注的关键点。”
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        selected: false
+        title: 'Peter Lynch Agent '
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753323587704'
+      position:
+        x: 2354
+        y: 1659
+      positionAbsolute:
+        x: 2354
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: bd0a14e1-f6fa-4520-8ec8-3f3b57c1e30b
+          role: system
+          text: 'Agent Name: Valuation_Agent
+
+            Persona: “你是一个精确、客观的财务分析机器人。你的任务是使用多种行业标准模型，对目标公司进行量化估值，并得出一个不带任何感情色彩的公允价值区间。”
+
+            Core Objective: “计算并提供目标股票的内在价值区间。”
+
+            Analysis Framework:
+
+            模型库:
+
+            现金流折现 (DCF) 模型: 核心模型，需预测未来5-10年自由现金流。
+
+            可比公司分析 (Comps): 与同行业公司的P/E, P/S, EV/EBITDA等倍数进行比较。
+
+            股息贴现模型 (DDM): 适用于成熟、稳定派息的公司。
+
+            Decision Triggers & Heuristics: “不产生决策，只输出数据。当 当前股价 / DCF估值中位数 < 0.8 时，标记为‘可能低估’。当 >
+            1.2 时，标记为‘可能高估’。”
+
+            Output Format: “以markdown格式输出结构化数据，末尾加上分割线，格式为：{‘DCF估值’: [低, 中, 高], ‘Comps估值’:
+            [低, 中, 高], ‘综合估值区间’: [X, Y], ‘估值状态’: ‘可能低估/合理/可能高估’}”
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        selected: false
+        title: Valuation_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753323593368'
+      position:
+        x: 2354
+        y: 1531
+      positionAbsolute:
+        x: 2354
+        y: 1531
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 4557e0ea-56d4-4464-a161-5de475c039ab
+          role: system
+          text: 'Agent Name: Fundamentals_Agent
+
+            Persona: “你是一位严谨的财务侦探，像审计师一样审视公司的财务报表。你的任务是评估公司的财务健康状况，识别优势和潜在风险。”
+
+            Core Objective: “对公司的财务状况进行全面评分和健康检查。”
+
+            Analysis Framework:
+
+            分析维度:
+
+            盈利能力 (Profitability): 毛利率、净利率、ROE、ROA。
+
+            偿债能力 (Solvency): 流动比率、速动比率、负债权益比。
+
+            运营效率 (Efficiency): 应收账款周转率、库存周转率。
+
+            成长性 (Growth): 营收、利润和现金流的同比增长率。
+
+            Decision Triggers & Heuristics: “基于以上维度为公司打分（0-100）。低于50分标记为‘财务风险’，高于85分标记为‘财务稳健’。”
+
+            Output Format: “以markdown格式输出财务健康报告卡，末尾加上分割线，格式为：{‘总分’: 88, ‘盈利能力’: ‘A+’,
+            ‘偿债能力’: ‘A’, ‘运营效率’: ‘B+’, ‘成长性’: ‘A’, ‘摘要’: ‘公司盈利能力强劲，成长迅速，但需关注其库存周转效率。’}”
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        - id: 36c16166-5235-4641-9067-9723da855f08
+          role: user
+          text: ''
+        selected: false
+        title: Fundamentals_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753323808978'
+      position:
+        x: 2354
+        y: 1403
+      positionAbsolute:
+        x: 2354
+        y: 1403
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: fe4b8217-58e3-4229-b1e2-0326018614ca
+          role: system
+          text: 'Agent Name: Technicals_Agent
+
+            Persona: “你是一位纪律严明的图表分析师。你不关心新闻或基本面，只相信‘图表说明一切’。你的任务是识别趋势、模式和关键价位，为交易提供时机建议。”
+
+            Core Objective: “分析价格和成交量数据，生成基于技术指标的短期交易信号。”
+
+            Analysis Framework:
+
+            趋势指标: 移动平均线 (MA 50, 200), MACD。
+
+            动量指标: 相对强弱指数 (RSI), 随机指标 (Stochastic)。
+
+            波动率指标: 布林带 (Bollinger Bands)。
+
+            关键价位: 支撑位、阻力位、斐波那契回撤位。
+
+            图表模式: 头肩顶/底、双顶/底、三角形态。
+
+            Decision Triggers & Heuristics: “当多个指标同时发出信号时，提高信号强度。例如：当RSI<30且股价触及布林带下轨时，生成‘强烈看涨反转’信号。”
+
+            Output Format: “以markdown格式输出明确的技术状态摘要，末尾加上分割线，格式为：{‘短期趋势’: ‘看涨’, ‘中期趋势’:
+            ‘中性’, ‘关键支撑’: 150美元, ‘关键阻力’: 175美元, ‘信号’: ‘MACD金叉，建议关注买入机会’}”
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        selected: false
+        title: Technicals_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753323813858'
+      position:
+        x: 2354
+        y: 1275
+      positionAbsolute:
+        x: 2354
+        y: 1275
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 8b898fc2-f955-4011-acdf-9399f93e74ac
+          role: system
+          text: 'Agent Name: Risk_Advisor_Agent
+
+            Persona: “你是一位经验丰富、天性悲观的首席风险官。你的工作不是带来好消息，而是扮演‘魔鬼的代言人’，预见一切可能出错的地方。你对市场的狂热保持警惕，并致力于用冷静的分析为乐观情绪降温。你的口头禅是：‘在我们计算能赚多少钱之前，先算算我们最多会亏多少钱。’”
+
+            Core Objective: “全面识别、量化并阐述一项潜在投资所面临的所有重大风险，包括但不限于市场风险、基本面风险和估值风险。最终为用户提供一个清晰的风险画像和具体的风险管理建议。”
+
+            Analysis Framework:
+
+            定量风险分析:
+
+            波动率分析: 计算该股票的历史波动率，并与市场基准（如标普500）进行比较。向用户解释：“这只股票的颠簸程度是市场的两倍。”
+
+            历史最大回撤 (Max Drawdown): 指出该股票历史上最大的跌幅。“请注意，这只股票在2022年曾一度下跌60%。您是否有能力和意愿承受类似的损失？”
+
+            估值下行风险: 在最坏的情况下（例如增长停滞、利润下滑），公司的估值可能跌到什么水平？提供一个“压力测试”下的估值。
+
+            定性风险分析 (Red Flag Checklist):
+
+            业务风险: 竞争加剧、技术被颠覆、客户集中度过高。
+
+            财务风险: 资产负债表上的潜在问题，如高额商誉、现金流恶化、过度依赖债务。
+
+            管理层风险: 关键人物依赖、内部人大量抛售、不诚信记录。
+
+            监管与宏观风险: 面临的潜在监管打击或宏观经济逆风。
+
+            Key Questions to Answer for the User:
+
+            “这项投资最大的三个风险是什么？”
+
+            “如果我的判断是错的，我可能会损失多少？”
+
+            “是否存在任何我应该警惕的‘红旗’或警告信号？”
+
+            “我该如何保护我的本金？”
+
+            Output Format: “以markdown格式生成一份清晰、易懂的‘风险评估报告’，末尾加上分割线。报告应包含：
+
+            总体风险评级：(低 / 中等 / 高 / 投机级)
+
+            核心风险清单：用项目符号列出3-5个最主要的风险。
+
+            情景分析：简述在‘熊市情景’下股价可能的表现。
+
+            风险管理建议：提供具体建议，如‘考虑分批建仓以平滑成本’、‘建议将初始仓位控制在您投资组合的X%以内’、‘在价格跌破XX美元时需要重新评估您的投资逻辑’。”
+
+
+            {{#1753320188688.text#}}是你所需要分析的公司信息。
+
+            {{#1753329877762.text#}}{{#1753329855102.text#}}{{#1753329840341.text#}}{{#1753334810426.body#}}中的内容可以作为你的参考。'
+        selected: false
+        title: Risk_Advisor_Agent
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753324070597'
+      position:
+        x: 2354
+        y: 1147
+      positionAbsolute:
+        x: 2354
+        y: 1147
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 12edc6d4-86bb-4481-aa04-7b45e2a0d27d
+          role: system
+          text: '```xml
+
+            <instruction>
+
+            任务目标是从用户提供的文本中提取用户提到的第一家公司或第一支股票的股票代码。以下是完成任务的详细步骤：
+
+
+            1. 仔细阅读用户提供的文本，识别其中提到的公司名称或股票名称。
+
+            2. 确保只提取用户提到的第一家公司或第一支股票的相关信息。
+
+            3. 从识别出的公司或股票名称中提取其对应的股票代码。
+
+            4. 如果用户未提到任何公司或股票，返回空值或适当的提示信息。
+
+            5. 输出结果时，确保仅包含股票代码，不包含任何其他信息或格式，例如XML标签。
+
+            6. 避免对用户输入进行任何额外的解释或扩展，只专注于提取第一家公司或股票的代码。
+
+
+            注意事项：
+
+            - 如果用户提到多个公司或股票，只提取第一个提到的。
+
+            - 如果用户输入中没有明确的公司或股票名称，返回空值或提示信息。
+
+            - 输出必须简洁，仅包含股票代码。
+
+
+            以下是一些示例，帮助理解任务要求。
+
+            </instruction>
+
+
+            <examples>
+
+            <example>
+
+            输入: 苹果公司和微软公司是科技行业的巨头。
+
+            输出: AAPL
+
+            </example>
+
+            <example>
+
+            输入: 我最近关注了特斯拉的股票。
+
+            输出: TSLA
+
+            </example>
+
+            <example>
+
+            输入: 亚马逊和谷歌的股票表现都不错。
+
+            输出: AMZN
+
+            </example>
+
+            </examples>
+
+            ```'
+        selected: false
+        title: 提取股票代码
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753324737030'
+      position:
+        x: 694
+        y: 515
+      positionAbsolute:
+        x: 694
+        y: 515
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        items:
+        - input_type: variable
+          operation: over-write
+          value:
+          - '1753324737030'
+          - text
+          variable_selector:
+          - conversation
+          - name
+          write_mode: over-write
+        selected: false
+        title: 变量赋值 2
+        type: assigner
+        version: '2'
+      height: 88
+      id: '1753324985692'
+      position:
+        x: 1026
+        y: 515
+      positionAbsolute:
+        x: 1026
+        y: 515
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 4106e209-45ff-4667-95d0-823135ade30b
+          role: system
+          text: 对{{#conversation.name#}}公司的股票信息{{#1753325505712.results#}}进行整理，只需要针对用户的问题{{#sys.query#}}进行回答，可以进行适当扩展（使用中文）
+        - id: 8ad3847f-7006-4d1b-9b93-89bf3ee6e4ee
+          role: user
+          text: ''
+        selected: false
+        title: LLM 13
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753325197790'
+      position:
+        x: 2354
+        y: 515
+      positionAbsolute:
+        x: 2354
+        y: 515
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "\ndef main(data) -> dict:\n    \n    return {\n        \"results\"\
+          : data,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          results:
+            children: null
+            type: array[object]
+        selected: false
+        title: 代码执行 3
+        type: code
+        variables:
+        - value_selector:
+          - '1753320948775'
+          - json
+          value_type: array[object]
+          variable: data
+      height: 54
+      id: '1753325505712'
+      position:
+        x: 2022
+        y: 781
+      positionAbsolute:
+        x: 2022
+        y: 781
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ticker symbol of the company you want to analyze.
+            ja_JP: The ticker symbol of the company you want to analyze.
+            pt_BR: O símbolo do ticker da empresa que você deseja analisar.
+            zh_Hans: 你想要搜索的公司的股票代码。
+          label:
+            en_US: Ticker symbol
+            ja_JP: Ticker symbol
+            pt_BR: Símbolo do ticker
+            zh_Hans: 股票代码
+          llm_description: The ticker symbol of the company you want to analyze.
+          max: null
+          min: null
+          name: symbol
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The start date of the analytics.
+            ja_JP: The start date of the analytics.
+            pt_BR: A data de início das análises.
+            zh_Hans: 分析的开始日期。
+          label:
+            en_US: Start date
+            ja_JP: Start date
+            pt_BR: Data de início
+            zh_Hans: 开始日期
+          llm_description: The start date of the analytics, the format of the date
+            must be YYYY-MM-DD like 2020-01-01.
+          max: null
+          min: null
+          name: start_date
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The end date of the analytics.
+            ja_JP: The end date of the analytics.
+            pt_BR: A data de término das análises.
+            zh_Hans: 分析的结束日期。
+          label:
+            en_US: End date
+            ja_JP: End date
+            pt_BR: Data de término
+            zh_Hans: 结束日期
+          llm_description: The end date of the analytics, the format of the date must
+            be YYYY-MM-DD like 2024-01-01.
+          max: null
+          min: null
+          name: end_date
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          end_date: ''
+          start_date: ''
+          symbol: ''
+        provider_id: langgenius/yahoo/yahoo
+        provider_name: langgenius/yahoo/yahoo
+        provider_type: builtin
+        selected: false
+        title: 分析
+        tool_configurations: {}
+        tool_description: 一个用于从雅虎财经获取分析数据的工具。
+        tool_label: 分析
+        tool_name: yahoo_finance_analytics
+        tool_node_version: '2'
+        tool_parameters:
+          end_date:
+            type: mixed
+            value: '2025-07-24'
+          start_date:
+            type: mixed
+            value: '2025-04-24'
+          symbol:
+            type: mixed
+            value: '{{#conversation.name#}}'
+        type: tool
+      height: 54
+      id: '1753329840341'
+      position:
+        x: 1690
+        y: 1391.5
+      positionAbsolute:
+        x: 1690
+        y: 1391.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ticker symbol of the company you want to search.
+            ja_JP: The ticker symbol of the company you want to search.
+            pt_BR: O símbolo do ticker da empresa que você deseja pesquisar.
+            zh_Hans: 你想要搜索的公司的股票代码。
+          label:
+            en_US: Ticker symbol
+            ja_JP: Ticker symbol
+            pt_BR: Símbolo do ticker
+            zh_Hans: 股票代码
+          llm_description: The ticker symbol of the company you want to search.
+          max: null
+          min: null
+          name: symbol
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          symbol: ''
+        provider_id: langgenius/yahoo/yahoo
+        provider_name: langgenius/yahoo/yahoo
+        provider_type: builtin
+        selected: false
+        title: 股票信息
+        tool_configurations: {}
+        tool_description: 一个用于从雅虎财经搜索股票信息的工具。
+        tool_label: 股票信息
+        tool_name: yahoo_finance_ticker
+        tool_node_version: '2'
+        tool_parameters:
+          symbol:
+            type: mixed
+            value: '{{#conversation.name#}}'
+        type: tool
+      height: 54
+      id: '1753329855102'
+      position:
+        x: 1690
+        y: 1299.5
+      positionAbsolute:
+        x: 1690
+        y: 1299.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ticker symbol of the company you want to search.
+            ja_JP: The ticker symbol of the company you want to search.
+            pt_BR: O símbolo do ticker da empresa que você deseja pesquisar.
+            zh_Hans: 你想要搜索的公司的股票代码。
+          label:
+            en_US: Ticker symbol
+            ja_JP: Ticker symbol
+            pt_BR: Símbolo do ticker
+            zh_Hans: 股票代码
+          llm_description: The ticker symbol of the company you want to search.
+          max: null
+          min: null
+          name: symbol
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        params:
+          symbol: ''
+        provider_id: langgenius/yahoo/yahoo
+        provider_name: langgenius/yahoo/yahoo
+        provider_type: builtin
+        selected: false
+        title: 新闻
+        tool_configurations: {}
+        tool_description: 一个用于从雅虎财经获取新闻的工具。
+        tool_label: 新闻
+        tool_name: yahoo_finance_news
+        tool_node_version: '2'
+        tool_parameters:
+          symbol:
+            type: mixed
+            value: '{{#conversation.name#}}'
+        type: tool
+      height: 54
+      id: '1753329877762'
+      position:
+        x: 1690
+        y: 1207.5
+      positionAbsolute:
+        x: 1690
+        y: 1207.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: cd84a11c-6654-4d06-b32a-e0e97296dfc7
+          role: system
+          text: 首先说明你是一个投资策略分析系统，并对用户的问题进行回答
+        selected: false
+        title: LLM 14
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753332604539'
+      position:
+        x: 1690
+        y: 675
+      positionAbsolute:
+        x: 1690
+        y: 675
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: contains
+            id: 1aa164a7-aedf-4df3-861f-ae7b3288cab0
+            value: 股价
+            varType: string
+            variable_selector:
+            - sys
+            - query
+          id: 'true'
+          logical_operator: and
+        - case_id: 5d682579-7395-4a77-8ea0-45056ac8d132
+          conditions: []
+          id: 5d682579-7395-4a77-8ea0-45056ac8d132
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: 条件分支
+        type: if-else
+      height: 150
+      id: '1753333011540'
+      position:
+        x: 3018
+        y: 492.5
+      positionAbsolute:
+        x: 3018
+        y: 492.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        memory:
+          query_prompt_template: '{{#sys.query#}}
+
+
+            {{#sys.files#}}'
+          role_prefix:
+            assistant: ''
+            user: ''
+          window:
+            enabled: false
+            size: 50
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 30de0b14-b22a-4d8c-be30-555d107cde86
+          role: system
+          text: 整理{{#1753333481609.result#}}数据用;分隔，输出只要数字和;分隔，不要添加其他文字(最后一个数字后面不需要;)
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 1000
+        selected: false
+        title: LLM 16
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 119
+      id: '1753333154822'
+      position:
+        x: 3682
+        y: 370
+      positionAbsolute:
+        x: 3682
+        y: 370
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(data) -> dict:\n    all_contents = []\n    for item in data:\n\
+          \      if \"analytics\" in item:\n        for news_item in item[\"analytics\"\
+          ]:\n            if \"Average Close\" in news_item: \n                all_contents.append(news_item[\"\
+          Average Close\"])\n    return {\n        \"result\": all_contents,\n   \
+          \ }\n\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[number]
+        selected: false
+        title: 代码执行 4
+        type: code
+        variables:
+        - value_selector:
+          - '1753333789982'
+          - json
+          value_type: array[object]
+          variable: data
+      height: 54
+      id: '1753333481609'
+      position:
+        x: 2022
+        y: 546
+      positionAbsolute:
+        x: 2022
+        y: 546
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The ticker symbol of the company you want to analyze.
+            ja_JP: The ticker symbol of the company you want to analyze.
+            pt_BR: O símbolo do ticker da empresa que você deseja analisar.
+            zh_Hans: 你想要搜索的公司的股票代码。
+          label:
+            en_US: Ticker symbol
+            ja_JP: Ticker symbol
+            pt_BR: Símbolo do ticker
+            zh_Hans: 股票代码
+          llm_description: The ticker symbol of the company you want to analyze.
+          max: null
+          min: null
+          name: symbol
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The start date of the analytics.
+            ja_JP: The start date of the analytics.
+            pt_BR: A data de início das análises.
+            zh_Hans: 分析的开始日期。
+          label:
+            en_US: Start date
+            ja_JP: Start date
+            pt_BR: Data de início
+            zh_Hans: 开始日期
+          llm_description: The start date of the analytics, the format of the date
+            must be YYYY-MM-DD like 2020-01-01.
+          max: null
+          min: null
+          name: start_date
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: The end date of the analytics.
+            ja_JP: The end date of the analytics.
+            pt_BR: A data de término das análises.
+            zh_Hans: 分析的结束日期。
+          label:
+            en_US: End date
+            ja_JP: End date
+            pt_BR: Data de término
+            zh_Hans: 结束日期
+          llm_description: The end date of the analytics, the format of the date must
+            be YYYY-MM-DD like 2024-01-01.
+          max: null
+          min: null
+          name: end_date
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          end_date: ''
+          start_date: ''
+          symbol: ''
+        provider_id: langgenius/yahoo/yahoo
+        provider_name: langgenius/yahoo/yahoo
+        provider_type: builtin
+        selected: false
+        title: 分析
+        tool_configurations: {}
+        tool_description: 一个用于从雅虎财经获取分析数据的工具。
+        tool_label: 分析
+        tool_name: yahoo_finance_analytics
+        tool_node_version: '2'
+        tool_parameters:
+          end_date:
+            type: mixed
+            value: '2025-07-24'
+          start_date:
+            type: mixed
+            value: '2025-06-24'
+          symbol:
+            type: mixed
+            value: '{{#conversation.name#}}'
+        type: tool
+      height: 54
+      id: '1753333789982'
+      position:
+        x: 1690
+        y: 575.5
+      positionAbsolute:
+        x: 1690
+        y: 575.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753333980353.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 5
+        type: answer
+        variables: []
+      height: 105
+      id: '1753333965080'
+      position:
+        x: 5010
+        y: 385.5
+      positionAbsolute:
+        x: 5010
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 5392e6c8-cf9e-4669-b45c-f1f191fd0ca0
+          role: system
+          text: 读取图表的网址并提供给用户{{#1753334160569.results#}}，提示用户可以点击该网址查看股价
+        selected: false
+        title: LLM 17
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753333980353'
+      position:
+        x: 4678
+        y: 385.5
+      positionAbsolute:
+        x: 4678
+        y: 385.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(data) -> dict:\n    all_contents = []\n    for item in data:\n\
+          \        if \"url\" in item: \n                all_contents.append(item[\"\
+          url\"])\n    return {\n        \"results\": all_contents,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          results:
+            children: null
+            type: array[string]
+        selected: false
+        title: 代码执行 5
+        type: code
+        variables:
+        - value_selector:
+          - '1753320729548'
+          - files
+          value_type: array[file]
+          variable: data
+      height: 54
+      id: '1753334160569'
+      position:
+        x: 4346
+        y: 385.5
+      positionAbsolute:
+        x: 4346
+        y: 385.5
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753325197790.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 105
+      id: '1753334407654'
+      position:
+        x: 2686
+        y: 507.5
+      positionAbsolute:
+        x: 2686
+        y: 507.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: ''
+        desc: ''
+        selected: false
+        title: 直接回复 6
+        type: answer
+        variables: []
+      height: 86
+      id: '1753334433538'
+      position:
+        x: 4014
+        y: 519
+      positionAbsolute:
+        x: 4014
+        y: 519
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data: []
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: HTTP 请求
+        type: http-request
+        url: https://www.alphavantage.co/query?function=OVERVIEW&symbol={{#conversation.name#}}&apikey=RHI7AK1A4IYKYX6T
+        variables: []
+      height: 174
+      id: '1753334810426'
+      position:
+        x: 1690
+        y: 994.5
+      positionAbsolute:
+        x: 1690
+        y: 994.5
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(data) -> dict:\n    all_contents = []\n    for item in data:\n\
+          \      if \"analytics\" in item:\n        for news_item in item[\"analytics\"\
+          ]:\n            if \"Average Close\" in news_item: \n                all_contents.append(news_item[\"\
+          Average Close\"])\n    return {\n        \"result\": all_contents,\n   \
+          \ }\n\n"
+        code_language: python3
+        desc: ''
+        outputs:
+          result:
+            children: null
+            type: array[number]
+        selected: false
+        title: 代码执行 6
+        type: code
+        variables:
+        - value_selector:
+          - '1753329840341'
+          - json
+          value_type: array[object]
+          variable: data
+      height: 54
+      id: '17533354023400'
+      position:
+        x: 3350
+        y: 1659
+      positionAbsolute:
+        x: 3350
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: 12362787-9f55-431c-8d8e-fc039e2cc73e
+          role: system
+          text: 整理{{#17533354023400.result#}}数据用;分隔，输出只要数字和;分隔，不要添加其他文字(最后一个数字后面不需要;)
+        selected: false
+        title: LLM 17
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753335445334'
+      position:
+        x: 3682
+        y: 1659
+      positionAbsolute:
+        x: 3682
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: data for generating chart, each number should be separated by ";"
+            ja_JP: data for generating chart, each number should be separated by ";"
+            pt_BR: dados para gerar gráfico linear, cada número deve ser separado
+              por ";"
+            zh_Hans: 用于生成线性图表的数据，每个数字之间用 ";" 分隔
+          label:
+            en_US: data
+            ja_JP: data
+            pt_BR: dados
+            zh_Hans: 数据
+          llm_description: data for generating linear chart, data should be a string
+            contains a list of numbers like "1;2;3;4;5"
+          max: null
+          min: null
+          name: data
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: X axis for chart, each text should be separated by ";"
+            ja_JP: X axis for chart, each text should be separated by ";"
+            pt_BR: Eixo X para gráfico linear, cada texto deve ser separado por ";"
+            zh_Hans: 线性图表的 x 轴，每个文本之间用 ";" 分隔
+          label:
+            en_US: X Axis
+            ja_JP: X Axis
+            pt_BR: Eixo X
+            zh_Hans: x 轴
+          llm_description: x axis for linear chart, x axis should be a string contains
+            a list of texts like "a;b;c;1;2" in order to match the data
+          max: null
+          min: null
+          name: x_axis
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          data: ''
+          x_axis: ''
+        provider_id: langgenius/chart/chart
+        provider_name: langgenius/chart/chart
+        provider_type: builtin
+        selected: false
+        title: 线性图表
+        tool_configurations: {}
+        tool_description: 线性图表
+        tool_label: 线性图表
+        tool_name: line_chart
+        tool_node_version: '2'
+        tool_parameters:
+          data:
+            type: mixed
+            value: '{{#1753335445334.text#}}'
+          x_axis:
+            type: mixed
+            value: null
+        type: tool
+      height: 54
+      id: '1753335477237'
+      position:
+        x: 4014
+        y: 1659
+      positionAbsolute:
+        x: 4014
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        code: "def main(data) -> dict:\n    all_contents = []\n    for item in data:\n\
+          \        if \"url\" in item: \n                all_contents.append(item[\"\
+          url\"])\n    return {\n        \"results\": all_contents,\n    }"
+        code_language: python3
+        desc: ''
+        outputs:
+          results:
+            children: null
+            type: array[string]
+        selected: false
+        title: 代码执行 7
+        type: code
+        variables:
+        - value_selector:
+          - '1753335477237'
+          - files
+          value_type: array[file]
+          variable: data
+      height: 54
+      id: '1753335501997'
+      position:
+        x: 4346
+        y: 1659
+      positionAbsolute:
+        x: 4346
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o
+          provider: langgenius/azure_openai/azure_openai
+        prompt_template:
+        - id: f6fdff49-a2c9-4172-a575-8a42ccf18507
+          role: system
+          text: 读取图表的网址并提供给用户{{#1753335501997.results#}}，提示用户可以点击该网址查看股价
+        selected: false
+        title: LLM 18
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 90
+      id: '1753335737015'
+      position:
+        x: 4678
+        y: 1659
+      positionAbsolute:
+        x: 4678
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '{{#1753335737015.text#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 7
+        type: answer
+        variables: []
+      height: 105
+      id: '1753335779864'
+      position:
+        x: 5010
+        y: 1659
+      positionAbsolute:
+        x: 5010
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        desc: ''
+        is_team_authorization: true
+        output_schema: null
+        paramSchemas:
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          label:
+            en_US: Markdown text
+            ja_JP: Markdown text
+            pt_BR: Markdown text
+            zh_Hans: Markdown格式文本
+          llm_description: ''
+          max: null
+          min: null
+          name: md_text
+          options: []
+          placeholder: null
+          precision: null
+          required: true
+          scope: null
+          template: null
+          type: string
+        - auto_generate: null
+          default: null
+          form: llm
+          human_description:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          label:
+            en_US: Filename of the output file
+            ja_JP: Filename of the output file
+            pt_BR: Filename of the output file
+            zh_Hans: 输出文件名
+          llm_description: ''
+          max: null
+          min: null
+          name: output_filename
+          options: []
+          placeholder: null
+          precision: null
+          required: false
+          scope: null
+          template: null
+          type: string
+        params:
+          md_text: ''
+          output_filename: ''
+        provider_id: bowenliang123/md_exporter/md_exporter
+        provider_name: bowenliang123/md_exporter/md_exporter
+        provider_type: builtin
+        selected: false
+        title: Markdown 转 PDF 文件
+        tool_configurations: {}
+        tool_description: 将 Markdown 转换为 PDF 文件的工具
+        tool_label: Markdown 转 PDF 文件
+        tool_name: md_to_pdf
+        tool_node_version: '2'
+        tool_parameters:
+          md_text:
+            type: mixed
+            value: '{{#llm.text#}}{{#1753320676610.text#}}{{#1753320695920.text#}}{{#1753323587704.text#}}{{#1753323584374.text#}}{{#1753323593368.text#}}{{#1753323808978.text#}}{{#1753323813858.text#}}{{#1753324070597.text#}}'
+          output_filename:
+            type: mixed
+            value: '{{#conversation.name#}}投资分析报告.pdf'
+        type: tool
+      height: 54
+      id: '1753337326776'
+      position:
+        x: 5342
+        y: 1659
+      positionAbsolute:
+        x: 5342
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    - data:
+        answer: '
+
+          为了您的阅读体验，我们将所有AI agent的具体分析整理成了pdf版本，点击此链接下载即可。
+
+          {{#1753337326776.files#}}'
+        desc: ''
+        selected: false
+        title: 直接回复 8
+        type: answer
+        variables: []
+      height: 153
+      id: '1753337361730'
+      position:
+        x: 5674
+        y: 1659
+      positionAbsolute:
+        x: 5674
+        y: 1659
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 244
+    viewport:
+      x: -1111.6369882105278
+      y: -426.32671934143127
+      zoom: 0.5700274174538915
