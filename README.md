@@ -67,62 +67,7 @@ AI-STOCK 的工作流程旨在模拟一个高效的投研团队从接收任务�
 
 ### 安装步骤 (Installation)
 
-1.  **克隆仓库**
-    ```sh
-    git clone https://github.com/your-username/project-synapse.git
-    cd project-synapse
-    ```
-
-2.  **安装依赖**
-    ```sh
-    pip install -r requirements.txt
-    ```
-
-3.  **配置环境变量**
-    *   将 `.env.example` 文件复制为 `.env`。
-        ```sh
-        cp .env.example .env
-        ```
-    *   在 `.env` 文件中填入您从以下服务获取的API密钥：
-        ```env
-        # 例如:
-        OPENAI_API_KEY="sk-..."
-        ALPHA_VANTAGE_API_KEY="your_alpha_vantage_key"
-        # ...其他API密钥
-        ```
-
----
-
-## 💻 使用示例 (Usage)
-
-您可以通过命令行或导入模块的方式与系统交互。
-
-**示例1：进行一次完整的股票分析**
-
-```python
-from synapse import analyze
-
-# 启动分析
-report = analyze("分析一下苹果公司(AAPL)") 
-
-# 打印报告
-print(report)
-```
-*这将输出一份完整的“投资委员会会议纪要”报告。*
-
-**示例2：查询特定信息**
-
-```python
-from synapse import query
-
-# 查询新闻
-news = query("特斯拉最近有什么关于自动驾驶的新闻？")
-print(news)
-
-# 获取股价图
-chart_path = query("帮我生成一张微软从年初至今的股价图")
-print(f"图表已保存至: {chart_path}")
-```
+将yml导入dify平台，配置好相关API即可使用
 
 ---
 
